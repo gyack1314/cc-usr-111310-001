@@ -1,0 +1,70 @@
+{
+  "kind": "merge-on-read",
+  "schema": [
+    "station",
+    "temperature"
+  ],
+  "files": [
+    {
+      "id": "base",
+      "asset": {
+        "path": "base.jsonl",
+        "bytes": 170,
+        "sha256": "5e8c34edea4d987a6cd52e5f20606770064061b7463618fe1ff71d0c70fbacb6",
+        "rows": 2
+      }
+    },
+    {
+      "id": "delta",
+      "asset": {
+        "path": "delta.jsonl",
+        "bytes": 262,
+        "sha256": "bdf2c916f10e79e9c47ea2bc72c5e0293aef34df19df3ba0b2687b40a42da480",
+        "rows": 4
+      }
+    },
+    {
+      "id": "new",
+      "asset": {
+        "path": "new.jsonl",
+        "bytes": 85,
+        "sha256": "cd433d12d9d701bcdff23c1af747aa256a040dd1dbc204ca14f4b1ef038f9434",
+        "rows": 1
+      }
+    }
+  ],
+  "snapshot": {
+    "id": "s5",
+    "file_ids": [
+      "base",
+      "delta",
+      "new"
+    ],
+    "visible_seq": 5
+  },
+  "protected_snapshots": [
+    {
+      "id": "s2",
+      "file_ids": [
+        "base",
+        "delta"
+      ],
+      "visible_seq": 2
+    },
+    {
+      "id": "s4",
+      "file_ids": [
+        "base",
+        "delta"
+      ],
+      "visible_seq": 4
+    }
+  ],
+  "selected_files": [
+    "delta"
+  ],
+  "retention_version": "rv1",
+  "memory_bytes": 1024,
+  "max_open_files": 1,
+  "append_during_compaction": []
+}

@@ -1,0 +1,7 @@
+# 有序状态文件
+
+每文件JSONL按Unicode key、seq、ordinal升序。字段schema中station为string，temperature为int或null，完整put必须含全部字段且无额外字段；patch只更新存在的字段，允许temperature显式null，station不可null。seq/ordinal为非负整数，总序冲突按(key,seq,ordinal)判断，不同key同序号不冲突。没有活跃put时patch记为未生效证据，不创建部分行；delete在无行时仍留墓碑。
+
+snapshot只引用file_ids，visible_seq按提交过滤，不能把目录文件自动加入。protected_snapshots各有独立文件集；压实可保留全部必要历史事件，不要求为减少行数牺牲历史可读。基准put可以作为带有效起点的完整状态，但不得让其越过受保护读边界。墓碑消去须覆盖全部更早来源的键范围证据。
+
+max_open_files包含输入和临时归并段；超大键组可流式折叠并分段保存受保护版本，不整组载入。append_during_compaction是可控调度点中的可信新增事件，封存为新文件后需保留。本次不回收旧文件。初始代码只检查文件身份、数量及资源预算。

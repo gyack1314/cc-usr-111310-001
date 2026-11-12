@@ -1,0 +1,2 @@
+{"key":"a","seq":1,"ordinal":0,"op":"put","value":{"station":"s1","temperature":10}}
+{"key":"b","seq":1,"ordinal":1,"op":"put","value":{"station":"s2","temperature":20}}

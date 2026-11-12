@@ -1,0 +1,4 @@
+{"key":"a","seq":2,"ordinal":0,"op":"patch","value":{"temperature":null}}
+{"key":"a","seq":3,"ordinal":0,"op":"delete"}
+{"key":"a","seq":4,"ordinal":0,"op":"patch","value":{"station":"s3"}}
+{"key":"b","seq":2,"ordinal":1,"op":"patch","value":{"temperature":25}}
